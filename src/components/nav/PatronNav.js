@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import "./NavBar.css";
 
-export const CustomerNav = () => {
+export const PatronNav = () => {
   const navigate = useNavigate();
   const localDaemonUser = localStorage.getItem("daemon_user");
   const daemonUserObject = JSON.parse(localDaemonUser);
@@ -9,7 +9,7 @@ export const CustomerNav = () => {
   return (
     <ul className="navbar">
       <li className="navbar__item active">
-        <Link className="navbar__link" to="/content">
+        <Link className="navbar__link" to="/exhibits">
           Content
         </Link>
       </li>

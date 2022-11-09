@@ -1,10 +1,13 @@
+import { Link } from "react-router-dom"
+import { ContentList } from "./ContentList"
+
 export const Content = ({ content, users, fetchContent }) => {
 
    const shorten = (text) => {
-      return text.substring(0, 100)
+      return text?.substring(0, 100)
    }
    const deleteButton = () => {
-      if (!users.isStaff) {
+      if (!users?.isStaff) {
          return (
             <button
                onClick={() => {
@@ -22,14 +25,15 @@ export const Content = ({ content, users, fetchContent }) => {
       }
    };
 
-   return (
+   return ( <>
       <div className="exhibit">
-         <header>{content.title}</header>
+         <Link to={ `/exhibits/${content.id}`}><header>{content.title}</header></Link>
          <img src={content.externalLink}></img>
-         <p>Decription: {shorten(content.description)}</p>
+         <p>Decription: {content.description}</p>
          <p>Type of Exhibit: {content.contentType}</p>
          {deleteButton()}
       </div>
+      </>
    )
 
 

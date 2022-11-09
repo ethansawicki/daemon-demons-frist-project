@@ -5,6 +5,9 @@ import "./content.css"
 export const ContentList = () => {
    const [contents, updateContent] = useState([])
 
+   const localDaemonUser = localStorage.getItem("daemon_user");
+   const daemonUserObject = JSON.parse(localDaemonUser);
+
    useEffect(
       () => {
          const fetchContent = async () => {
@@ -26,7 +29,7 @@ export const ContentList = () => {
          {
             contents.map(
                (content) => {
-                  return <Content content={content} key={`content--${content.id}`} />
+                  return <Content content={content} key={`content--${content.id}`} users={daemonUserObject}/>
                }
             )
          }
