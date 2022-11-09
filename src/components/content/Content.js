@@ -7,7 +7,7 @@ export const Content = ({ content, users, fetchContent }) => {
       return text?.substring(0, 100)
    }
    const deleteButton = () => {
-      if (!users.isStaff) {
+      if (!users?.isStaff) {
          return (
             <button
                onClick={() => {
