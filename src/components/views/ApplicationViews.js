@@ -11,5 +11,4 @@ export const ApplicationViews = () => {
     } else {
       return <PatronViews />
     }
-  }
-};
+}

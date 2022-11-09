@@ -1,5 +1,6 @@
 import { Outlet, Routes, Route } from "react-router-dom"
 import { ContentList } from "../content/ContentList"
+import { ContentPage } from "../content/ContentPage"
 
 export const PatronViews = () => {
    return (
@@ -13,6 +14,7 @@ export const PatronViews = () => {
          }></Route>
    
          <Route path="exhibits" element={ <ContentList />}></Route>
+         <Route path="exhibits/:contentId" element={ <ContentPage />}></Route>
       </Routes>
    )	
 }
