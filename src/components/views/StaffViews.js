@@ -1,6 +1,7 @@
 import { Outlet, Routes, Route } from "react-router-dom"
 import { ContentList } from "../content/ContentList"
 import { ContentPage } from "../content/ContentPage"
+import { ContentCreationForm } from "../staff/ContentCreationForm"
 
 export const StaffViews = () => {
    return (
@@ -15,6 +16,7 @@ export const StaffViews = () => {
    
          <Route path="exhibits" element={ <ContentList />}></Route>
          <Route path="exhibits/:contentId" element={ <ContentPage />}></Route>
+         <Route path="exhibits/exhibitcreation" element={ <ContentCreationForm />}></Route>
       </Routes>
    )	
 }

@@ -5,9 +5,10 @@ export const ContentCreationForm = () => {
 
 const [content, update] = useState({
     likes: 0,
-    commentsId: [],
     externalLink: "",
     contentType: "",
+    title: "",
+    description: "",
     staffId: 0
 })
 
@@ -22,8 +23,9 @@ const submitContent = (event) => {
 
     const contentToSendToApi = {
         likes: content.likes,
-        commentsId: content.commentsId,
         externalLink: content.externalLink,
+        title: content.title,
+        description:content.description,
         contentType: content.contentType,
         staffId: fristUserObject.id
     }
@@ -39,7 +41,7 @@ const submitContent = (event) => {
         }
         const response = await fetch(`http://localhost:8088/content`, options)
         await response.json()
-        navigate("/content")
+        navigate("/exhibits")
     }
     sendData()
 }

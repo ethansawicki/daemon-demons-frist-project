@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import { Content } from "./Content"
 
 export const ContentPage = () => {
    
    const {contentId} = useParams()
-   const [exhibit, renderExhibit] = useState([])
+   const [exhibit, renderExhibit] = useState({})
 
    useEffect(
       () => {
@@ -18,5 +19,12 @@ export const ContentPage = () => {
       [contentId]
    )
 
-
+   return <>
+   <h1>{exhibit.title}</h1>
+   <article className="contentList">
+      {
+         <Content content={exhibit}></Content>
+      }
+   </article>
+</>
 }
