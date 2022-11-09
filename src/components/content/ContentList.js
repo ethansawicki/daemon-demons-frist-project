@@ -17,7 +17,10 @@ export const ContentList = () => {
       []
    )
 
+
+
    return <>
+
       <h1>Current Exhibits and Shows</h1>
       <article className="contentList">
          {
@@ -27,6 +30,7 @@ export const ContentList = () => {
                }
             )
          }
+
       </article>
    </>
 

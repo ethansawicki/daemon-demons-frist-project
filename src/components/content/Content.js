@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom"
 import { ContentList } from "./ContentList"
 
-export const Content = ({content}) => {
+export const Content = ({ content, users, fetchContent }) => {
 
    const shorten = (text) => {
-      return text?.substring(0,100)
+      return text?.substring(0, 100)
    }
 
    return ( <>
@@ -13,7 +13,14 @@ export const Content = ({content}) => {
          <img src={content.externalLink}></img>
          <p>Decription: {content.description}</p>
          <p>Type of Exhibit: {content.contentType}</p>
+         {deleteButton()}
       </div>
       </>
    )
+
+
 }
+
+
+
+
