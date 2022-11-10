@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import { Comments } from "../comment/Comments"
+import { NewComment } from "../comment/NewComment"
 import { Content } from "./Content"
 
 export const ContentPage = () => {
@@ -10,7 +12,7 @@ export const ContentPage = () => {
    useEffect(
       () => {
          const fetchContent = async () => {
-            const response = await fetch(`http://localhost:8088/content/${contentId}`)
+            const response = await fetch(`http://localhost:8088/contents/${contentId}`)
             const exhibitArray = await response.json()
             renderExhibit(exhibitArray)
          }
@@ -22,9 +24,16 @@ export const ContentPage = () => {
    return <>
    <h1>{exhibit.title}</h1>
    <article className="contentList">
-      {
-         <Content content={exhibit}></Content>
-      }
+      <section>
+         {
+            <Content content={exhibit}></Content>
+         }
+      </section>
+      <section>
+         {
+            <Comments />
+         }
+      </section>
    </article>
 </>
 }
