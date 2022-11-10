@@ -7,11 +7,11 @@ export const Content = ({ content, users, fetchContent }) => {
       return text?.substring(0, 100)
    }
    const deleteButton = () => {
-      if (!users?.isStaff) {
+      if (users?.staff) {
          return (
             <button
                onClick={() => {
-                  fetch(`http://localhost:8088/content/${content.id}`, {
+                  fetch(`http://localhost:8088/contents/${content.id}`, {
                      method: "DELETE",
                   }).then(fetchContent);
                }}
