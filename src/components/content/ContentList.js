@@ -11,7 +11,7 @@ export const ContentList = () => {
    useEffect(
       () => {
          const fetchContent = async () => {
-            const response = await fetch(`http://localhost:8088/content`)
+            const response = await fetch(`http://localhost:8088/contents`)
             const contentArray = await response.json()
             updateContent(contentArray)
          }
