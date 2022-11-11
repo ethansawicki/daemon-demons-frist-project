@@ -4,9 +4,32 @@ import "./content.css"
 
 export const ContentList = () => {
    const [contents, updateContent] = useState([])
+   const [likesWithPatrons, setLiked] = useState([])
+   const [likesOn, toggleLiked] = useState(false)
 
    const localDaemonUser = localStorage.getItem("daemon_user");
    const daemonUserObject = JSON.parse(localDaemonUser);
+
+   useEffect (
+      () => {
+         const fetchLikes = async () => {
+            const response = await fetch(`http://localhost:8088/likes?_expand=patrons`)
+            const likedArray = await response.json()
+            setLiked(likedArray)
+         }
+         fetchLikes()
+      },
+      []
+   )
+
+   useEffect(
+      () => {
+         contents.filter((liked) => {
+            return liked.id === likesWithPatrons.patronsId === localDaemonUser.id
+         })
+      },
+      [likesOn]
+   )
 
    useEffect(
       () => {
@@ -20,12 +43,10 @@ export const ContentList = () => {
       []
    )
 
-
-
    return <>
-
       <h1>Current Exhibits and Shows</h1>
       <article className="contentList">
+      <button onClick={ () => {toggleLiked(true)} }>Only Liked</button>
          {
             contents.map(
                (content) => {
