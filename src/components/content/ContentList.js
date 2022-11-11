@@ -13,7 +13,7 @@ export const ContentList = () => {
    useEffect (
       () => {
          const fetchLikes = async () => {
-            const response = await fetch(`http://localhost:8088/likes?_expand=patrons`)
+            const response = await fetch(`http://localhost:8088/likes?_expand=patrons&_expand=contents`)
             const likedArray = await response.json()
             setLiked(likedArray)
          }
@@ -25,13 +25,17 @@ export const ContentList = () => {
    useEffect(
       () => {
          if (likesOn) {
-            const filteredLikes = contents.filter(liked => {
-               return liked.id === likesWithPatrons.patronsId === localDaemonUser.id
+            const filteredLikes = likesWithPatrons.filter(liked => {
+               if(liked.id === daemonUserObject.id) {
+                  return liked
+               }
             })
-            updateContent(filteredLikes)
+            setLiked(filteredLikes)
+         } else {
+            setLiked(contents)
          }
       },
-      [likesOn]
+      [contents, likesOn]
    )
 
    useEffect(
@@ -49,9 +53,9 @@ export const ContentList = () => {
    return <>
       <h1>Current Exhibits and Shows</h1>
       <article className="contentList">
-      <button onClick={ () => {toggleLiked(true)} }>Only Liked</button>
+      <button onClick={ () => {likesOn ? toggleLiked(false) : toggleLiked(true)} }>Only Liked</button>
          {
-            contents.map(
+            likesWithPatrons.map(
                (content) => {
                   return <Content content={content} key={`content--${content.id}`} users={daemonUserObject}/>
                }
