@@ -25,11 +25,7 @@ export const ContentList = () => {
    useEffect(
       () => {
          if (likesOn) {
-            const filteredLikes = likesWithPatrons.filter(liked => {
-               if(liked.id === daemonUserObject.id) {
-                  return liked
-               }
-            })
+            const filteredLikes = likesWithPatrons.filter(liked => liked.id === daemonUserObject.id)
             setLiked(filteredLikes)
          } else {
             setLiked(contents)
