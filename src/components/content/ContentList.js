@@ -24,9 +24,12 @@ export const ContentList = () => {
 
    useEffect(
       () => {
-         contents.filter((liked) => {
-            return liked.id === likesWithPatrons.patronsId === localDaemonUser.id
-         })
+         if (likesOn) {
+            const filteredLikes = contents.filter(liked => {
+               return liked.id === likesWithPatrons.patronsId === localDaemonUser.id
+            })
+            updateContent(filteredLikes)
+         }
       },
       [likesOn]
    )
