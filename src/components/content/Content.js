@@ -31,6 +31,7 @@ export const Content = ({ content, users, fetchContent }) => {
          <img src={content.externalLink}></img>
          <p>Decription: {content.description}</p>
          <p>Type of Exhibit: {content.contentType}</p>
+         <p>Number of Likes: {content.likes}</p>
          {deleteButton()}
       </div>
       </>
