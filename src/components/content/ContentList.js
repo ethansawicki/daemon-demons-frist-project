@@ -25,11 +25,11 @@ export const ContentList = () => {
    return <>
 
       <h1>Current Exhibits and Shows</h1>
-      <article className="contentList">
+      <article className="ContentList">
          {
             contents.map(
                (content) => {
-                  return <Content content={content} key={`content--${content.id}`} users={daemonUserObject}/>
+                  return <Content content={content} key={`content--${content.id}`} users={daemonUserObject} />
                }
             )
          }

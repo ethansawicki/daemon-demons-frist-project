@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import { ContentList } from "./ContentList"
+import { LikeButton } from "./LikeButton"
 
 export const Content = ({ content, users, fetchContent }) => {
 
@@ -15,7 +16,7 @@ export const Content = ({ content, users, fetchContent }) => {
                      method: "DELETE",
                   }).then(fetchContent);
                }}
-               className="content__delete"
+               className="content__delete deleteButton"
             >
                DELETE
             </button>
@@ -25,19 +26,22 @@ export const Content = ({ content, users, fetchContent }) => {
       }
    };
 
-   return ( <>
+   return (<>
       <div className="exhibit">
-         <Link to={ `/exhibits/${content.id}`}><header>{content.title}</header></Link>
+         <Link to={`/exhibits/${content.id}`}><header>{content.title}</header></Link>
          <img src={content.externalLink}></img>
          <p>Decription: {content.description}</p>
          <p>Type of Exhibit: {content.contentType}</p>
          {deleteButton()}
+         {LikeButton()}
+
       </div>
-      </>
+   </>
    )
 
 
 }
+
 
 
 
