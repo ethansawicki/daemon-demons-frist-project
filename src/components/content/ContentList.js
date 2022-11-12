@@ -45,7 +45,7 @@ export const ContentList = () => {
       const contentArray = await response.json()
       updateContent(contentArray)
    } 
-   fetchContent()
+  
 
    useEffect(
       () => {
