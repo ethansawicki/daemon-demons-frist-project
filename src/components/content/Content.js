@@ -33,6 +33,7 @@ export const Content = ({ content, users, fetchContent }) => {
          <p>Decription: {content.description}</p>
          <p>Type of Exhibit: {content.contentType}</p>
          {deleteButton()}
+         {LikeButton()}
       </div>
    </>
    )
