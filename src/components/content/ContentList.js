@@ -33,13 +33,19 @@ export const ContentList = () => {
       },
       [contents, likesOn]
    )
+      const fetchContent = async () => {
+      const response = await fetch(`http://localhost:8088/contents`)
+      const contentArray = await response.json()
+      updateContent(contentArray)
+      }
+      fetchContent()
 
    const fetchContent = async () => {
       const response = await fetch(`http://localhost:8088/contents`)
       const contentArray = await response.json()
       updateContent(contentArray)
    } 
-   fetchContent()
+  
 
    useEffect(
       () => {

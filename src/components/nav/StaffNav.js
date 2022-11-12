@@ -18,11 +18,6 @@ export const StaffNav = () => {
           Content Creation Form
         </Link>
       </li>
-      <li className="navbar__item active">
-        <Link className="navbar__link" to="/likedContent">
-          Liked Content
-        </Link>
-      </li>
       {localStorage.getItem("daemon_user") ? (
         <li className="navbar__item navbar__logout">
           <Link
