@@ -10,7 +10,7 @@ export const ContentList = () => {
    const localDaemonUser = localStorage.getItem("daemon_user");
    const daemonUserObject = JSON.parse(localDaemonUser);
 
-   useEffect (
+   useEffect(
       () => {
          const fetchLikes = async () => {
             const response = await fetch(`http://localhost:8088/likes?_expand=patrons&_expand=contents`)
@@ -49,11 +49,11 @@ export const ContentList = () => {
    return <>
       <h1>Current Exhibits and Shows</h1>
       <article className="contentList">
-      <button onClick={ () => {likesOn ? toggleLiked(false) : toggleLiked(true)} }>Only Liked</button>
+         <button onClick={() => { likesOn ? toggleLiked(false) : toggleLiked(true) }}>Only Liked</button>
          {
             likesWithPatrons.map(
                (content) => {
-                  return <Content content={content} key={`content--${content.id}`} users={daemonUserObject}/>
+                  return <Content content={content} key={`content--${content.id}`} users={daemonUserObject} />
                }
             )
          }

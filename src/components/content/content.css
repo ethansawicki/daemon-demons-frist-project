@@ -40,3 +40,14 @@ img {
   background-color: burlywood;
   cursor: pointer;
 }
+
+
+.button  {
+   height: 30px;
+   background-color: blue;
+}
+
+.deleteButton {
+   height: 30px;
+   background-color: red;
+}
