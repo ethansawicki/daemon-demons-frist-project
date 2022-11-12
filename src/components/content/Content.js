@@ -24,6 +24,25 @@ export const Content = ({ content, users, fetchContent, likeBtn }) => {
       }
    };
 
+   const editButton = () => {
+      if (users?.staff) {
+        return (
+          <div>
+            <button
+              className="content__edit"
+              onClick={() => {
+                navigate(`/exihibit/edit/${content.id}`);
+              }}
+            >
+              EDIT
+            </button>
+          </div>
+        );
+      } else {
+        return "";
+      }
+    };
+
    return (<>
       <div className="exhibit">
          <Link to={`/exhibits/${content.id}`}><header>{content.title}</header></Link>
@@ -32,6 +51,7 @@ export const Content = ({ content, users, fetchContent, likeBtn }) => {
          <p>Type of Exhibit: {content.contentType}</p>
          <div>{likeBtn}</div>
          {deleteButton()}
+         {editButton()}
       </div>
    </>
    )
