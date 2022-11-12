@@ -1,12 +1,12 @@
-import { Link } from "react-router-dom"
-import { ContentList } from "./ContentList"
+import { Link, useNavigate } from "react-router-dom";
+import { ContentList } from "./ContentList";
 import { LikeButton } from "./LikeButton"
 
 export const Content = ({ content, users, fetchContent }) => {
-
+   const navigate = useNavigate();
    const shorten = (text) => {
-      return text?.substring(0, 100)
-   }
+      return text?.substring(0, 100);
+   };
    const deleteButton = () => {
       if (users?.staff) {
          return (
@@ -33,8 +33,6 @@ export const Content = ({ content, users, fetchContent }) => {
          <p>Decription: {content.description}</p>
          <p>Type of Exhibit: {content.contentType}</p>
          {deleteButton()}
-         {LikeButton()}
-
       </div>
    </>
    )
