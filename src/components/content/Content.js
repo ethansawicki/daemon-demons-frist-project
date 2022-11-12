@@ -25,15 +25,9 @@ export const Content = ({ content, users, fetchContent }) => {
     }
   };
 
-  return (
-    <>
-      <div className="exhibit">
-        <Link to={`/exhibits/${content.id}`}>
-          <header>{content.title}</header>
-        </Link>
-        <img src={content.externalLink}></img>
-        <p>Decription: {content.description}</p>
-        <p>Type of Exhibit: {content.contentType}</p>
+  const editButton = () => {
+    if (users?.staff) {
+      return (
         <div>
           <button
             className="content__edit"
@@ -44,6 +38,22 @@ export const Content = ({ content, users, fetchContent }) => {
             EDIT
           </button>
         </div>
+      );
+    } else {
+      return "";
+    }
+  };
+
+  return (
+    <>
+      <div className="exhibit">
+        <Link to={`/exhibits/${content.id}`}>
+          <header>{content.title}</header>
+        </Link>
+        <img src={content.externalLink}></img>
+        <p>Decription: {content.description}</p>
+        <p>Type of Exhibit: {content.contentType}</p>
+        {editButton()}
         {deleteButton()}
       </div>
     </>
