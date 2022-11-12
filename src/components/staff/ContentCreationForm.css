@@ -1,0 +1,26 @@
+.form-group {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(47, 230, 250);
+    margin: 10px;
+}
+
+input[type=text] {
+    padding: 10px;
+    margin: 10px 0;
+}
+
+input[type=url] {
+    padding: 10px;
+    margin: 10px 0;
+}
+
+form {
+    background-image: url(https://thumbs.dreamstime.com/b/colorful-abstract-acrylic-painting-natural-dynamic-mixture-colors-flow-background-30555980.jpg);
+}
+
+h2 {
+    color: white;
+    font: bolder;
+    
+}
