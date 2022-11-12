@@ -1,23 +1,42 @@
 import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 
 export const LikeButton = () => {
-    const [likes, setLikes] = useState(0);
-    const [isClicked, setIsClicked] = useState(false);
+    const {contentId} = useParams()
+    const [likes] = useState({
+        patronsId: "",
+        contentsId: Number(contentId)
+    });
+    
+    const localDaemonUser = localStorage.getItem("daemon_user");
+    const daemonUserObject = JSON.parse(localDaemonUser);
 
     const handleClick = () => {
-        if (isClicked) {
-            setLikes(likes + 1);
-        } else {
-            setLikes(likes + 1);
-        }
-        setIsClicked(!isClicked);
+       const likeToDB = {
+            patronsId: daemonUserObject.id,
+            contentsId: likes.contentsId
+       }
+
+       const likesToDB = async () => {
+            const options = {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(likeToDB)
+            }
+           const req = await fetch(`http://localhost:8088/likes`, options)
+           await req.json()
+       }
+       likesToDB()
     };
 
     return (
-        <button className={`like-button button ${isClicked && 'liked'}`} onClick={handleClick}>
-            <span className="likes-counter button">{`Like | ${likes}`}</span>
-        </button>
+
+        !daemonUserObject.staff
+        ? <button className={`like-button button`} onClick={handleClick}>Like</button>
+        : ""
     );
 };
 

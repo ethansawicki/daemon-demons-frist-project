@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { Comments } from "../comment/Comments"
-import { NewComment } from "../comment/NewComment"
 import { Content } from "./Content"
+import { LikeButton } from "./LikeButton"
+
 
 export const ContentPage = () => {
    
@@ -26,7 +27,9 @@ export const ContentPage = () => {
    <article className="contentList">
       <section>
          {
-            <Content content={exhibit}></Content>
+            <>
+               <Content likeBtn={<LikeButton />} content={exhibit} />
+            </>
          }
       </section>
       <section>
