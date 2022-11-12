@@ -14,6 +14,11 @@ export const StaffNav = () => {
         </Link>
       </li>
       <li className="navbar__item active">
+        <Link className="navbar__link" to="exhibits/exhibitcreation">
+          Content Creation Form
+        </Link>
+      </li>
+      <li className="navbar__item active">
         <Link className="navbar__link" to="/likedContent">
           Liked Content
         </Link>
