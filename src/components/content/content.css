@@ -22,6 +22,17 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.exhibit__header {
+  width: 12vw;
+}
+
+.exhibit__description {
+  width: 40vw;
+}
+
+.exhibit__type {
+  width: 10vw;
+}
 
 img {
   width: 200px;
@@ -30,24 +41,45 @@ img {
   padding: 0 10px 0 10px;
 }
 
+.exhibit__button_container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
 .content__edit {
-  height: 200px;
-  width: 50px;
+  height: auto;
+  width: 8vw;
   padding: 10px;
   color: black;
   border: 1px black solid;
-  border-radius: 5px;
+  border-radius: 10px;
   background-color: burlywood;
   cursor: pointer;
+  text-align: center;
+  font-weight: 600;
 }
 
-
-.button  {
-   height: 30px;
-   background-color: blue;
+.content__delete {
+  height: auto;
+  width: 8vw;
+  padding: 10px;
+  color: wheat;
+  border: 1px black solid;
+  border-radius: 10px;
+  background-color: red;
+  cursor: pointer;
+  text-align: center;
+  font-weight: 600;
 }
 
-.deleteButton {
-   height: 30px;
-   background-color: red;
-}
+/* .button {
+  height: 30px;
+  background-color: blue;
+} */
+
+/* .deleteButton {
+  height: auto;
+  width: 5vw;
+  background-color: red;
+} */
