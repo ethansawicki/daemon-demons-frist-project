@@ -16,7 +16,7 @@ export const Content = ({ content, users, fetchContent, likeBtn }) => {
                 method: "DELETE",
               }).then(fetchContent);
             }}
-            className="content__delete"
+            className="deleteButton"
           >
             DELETE
           </button>

@@ -35,7 +35,7 @@ export const LikeButton = () => {
     return (
 
         !daemonUserObject.staff
-        ? <button className={`like-button button`} onClick={handleClick}>Like</button>
+        ? <button className="like-button" onClick={handleClick}>Like</button>
         : ""
     );
 };

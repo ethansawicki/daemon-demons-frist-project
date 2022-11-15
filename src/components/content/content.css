@@ -73,13 +73,30 @@ img {
   font-weight: 600;
 }
 
-/* .button {
+.like-button { 
+  background-color: #175BDB;
+  border: 3ex;
+  color: white;
+  padding: 0px 3px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+  margin: 4px 2px;
+  cursor: pointer;
   height: 30px;
-  background-color: blue;
-} */
+}
 
-/* .deleteButton {
-  height: auto;
-  width: 5vw;
-  background-color: red;
-} */
+.deleteButton {
+  background-color: #B3271A;
+ border: none;
+ color: white;
+ padding: 0px 3px;
+ text-align: center;
+ text-decoration: none;
+ display: inline-block;
+ font-size: 10px;
+ margin: 4px 2px;
+ cursor: grab;
+ height: 30px;
+}
